@@ -10,7 +10,6 @@
     <SidebarLink
       v-if="!isCustomerPortal"
       label="Search"
-      class="mb-1"
       :icon="LucideSearch"
       :on-click="() => openCommandPalette()"
       :is-expanded="isExpanded"
@@ -21,6 +20,16 @@
           <span>K</span>
         </span>
       </template>
+    </SidebarLink>
+    <SidebarLink
+      v-if="!isCustomerPortal"
+      class="relative"
+      label="Dashboard"
+      :icon="LucideLayoutDashboard"
+      :to="'Dashboard'"
+      :is-active="isActiveTab('Dashboard')"
+      :is-expanded="isExpanded"
+    >
     </SidebarLink>
     <div class="mb-4" v-if="!isCustomerPortal">
       <div
@@ -126,6 +135,7 @@ import LucideArrowLeftFromLine from "~icons/lucide/arrow-left-from-line";
 import LucideArrowRightFromLine from "~icons/lucide/arrow-right-from-line";
 import LucideBell from "~icons/lucide/bell";
 import LucideSearch from "~icons/lucide/search";
+import LucideLayoutDashboard from "~icons/lucide/layout-dashboard";
 import SettingsModal from "@/components/Settings/SettingsModal.vue";
 import Apps from "@/components/Apps.vue";
 import { isCustomerPortal } from "@/utils";
